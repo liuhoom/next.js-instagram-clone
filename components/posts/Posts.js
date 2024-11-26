@@ -28,15 +28,13 @@ export default function Posts() {
   return (
     <div className=''>
       {dummyData.map((i) => (
-        <div>
-          <Post
-            key={i.id}
-            username={i.username}
-            userimg={i.userimg}
-            image={i.image}
-            comment={i.comment}
-          />
-        </div>
+        <Post
+          key={i.id}
+          username={i.username}
+          userimg={i.userimg}
+          image={i.image}
+          comment={i.comment}
+        />
       ))}
     </div>
   );

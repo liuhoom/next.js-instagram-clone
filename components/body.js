@@ -1,5 +1,6 @@
-import Stories from '@/components/stories/stories'
-import Posts from './posts/Posts'
+import Stories from '@/components/stories/stories';
+import Posts from './posts/Posts';
+import Rightbar from './Rightbar';
 
 export default function Body() {
   return (
@@ -15,9 +16,10 @@ export default function Body() {
       </div>
 
       {/* right 1/3 */}
-      <div className='md:col-span-1 hidden md:inline-grid'>right</div>
 
-      <div className=''></div>
+      <div className='md:col-span-1 hidden md:inline-grid'>
+        <Rightbar />
+      </div>
     </div>
-  )
+  );
 }

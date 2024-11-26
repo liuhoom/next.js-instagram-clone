@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 export default function Header() {
   const router = useRouter()
   return (
-    <div className='sticky top-0 border-b shadow-sm bg-white'>
+    <div className='sticky top-0 border-b shadow-sm bg-white z-30'>
       <div className='flex justify-between items-center max-w-6xl mx-4 xl:mx-auto'>
         <div className='cursor-pointer h-24 w-24 relative hidden md:inline'>
           <Image

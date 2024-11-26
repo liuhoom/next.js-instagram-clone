@@ -14,7 +14,6 @@ export default function Stories() {
     }))
 
     setStories(stories)
-    console.log(stories)
   }, [])
   return (
     <div className='flex space-x-2 overflow-x-scroll scrollbar-none mt-10 border p-6 rounded-md border-gray-200 bg-white'>

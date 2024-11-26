@@ -4,7 +4,7 @@
 
 @layer components {
   .header-icon {
-    @apply hover:scale-125 transition-transform duration-200 ease-out cursor-pointer;
+    @apply h-6 w-6 hover:scale-125 transition-transform duration-200 ease-out cursor-pointer;
   }
 
   body {

@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 export default function Header() {
   const router = useRouter()
   return (
-    <div className='sticky top-0 border-b bg-white'>
+    <div className='sticky top-0 border-b shadow-sm bg-white'>
       <div className='flex justify-between items-center max-w-6xl mx-4 xl:mx-auto'>
         <div className='cursor-pointer h-24 w-24 relative hidden md:inline'>
           <Image
@@ -29,20 +29,20 @@ export default function Header() {
         </div>
 
         <div className='relative flex mt-1'>
-          <SearchIcon className='absolute top-2 left-2 h-8 text-gray-500' />
+          <SearchIcon className='absolute top-2 left-2 h-6 text-gray-500' />
           <input
             type='text'
             placeholder='Search'
-            className='pl-12 h-12 rounded-lg border-none focus:border-black focus:ring-black'
+            className='pl-10 h-10 rounded-lg bg-gray-50 focus:border-black focus:ring-black'
           />
         </div>
 
         <div className='flex space-x-4 items-center'>
           <HomeIcon
-            className='h-8 w-8 hidden md:inline-flex header-icon'
+            className='hidden md:inline-flex header-icon'
             onClick={() => router.push('/')}
           />
-          <PlusCircleIcon className='h-8 w-8  header-icon' />
+          <PlusCircleIcon className=' header-icon' />
           <Image
             src='https://avatars.githubusercontent.com/u/6359476?v=4'
             height={64}

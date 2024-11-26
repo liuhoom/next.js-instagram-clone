@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  // reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {
@@ -15,8 +16,11 @@ const nextConfig = {
       {
         hostname: 'avatars.githubusercontent.com',
       },
+      {
+        hostname: 'i.pravatar.cc',
+      },
     ],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

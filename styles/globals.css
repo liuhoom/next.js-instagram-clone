@@ -7,7 +7,7 @@
     @apply h-6 w-6 hover:scale-125 transition-transform duration-200 ease-out cursor-pointer;
   }
 
-  body {
-    @apply bg-gray-50
+  .post-icon {
+    @apply h-6 hover:scale-125 transition-transform duration-200 ease-out cursor-pointer;
   }
 }

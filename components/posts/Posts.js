@@ -1,4 +1,4 @@
-import Post from './Post'
+import Post from './Post';
 
 export default function Posts() {
   const dummyData = [
@@ -23,12 +23,12 @@ export default function Posts() {
       image: '/something.jpg',
       comment: "What's this?",
     },
-  ]
+  ];
 
   return (
     <div className=''>
       {dummyData.map((i) => (
-        <div className=''>
+        <div>
           <Post
             key={i.id}
             username={i.username}
@@ -39,5 +39,5 @@ export default function Posts() {
         </div>
       ))}
     </div>
-  )
+  );
 }

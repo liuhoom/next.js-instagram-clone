@@ -1,13 +1,13 @@
-import Image from 'next/image'
-import React from 'react'
-import { HomeIcon } from '@heroicons/react/solid'
-import { PlusCircleIcon, SearchIcon } from '@heroicons/react/outline'
-import { useRouter } from 'next/router'
-import { signOut, useSession } from 'next-auth/react'
+import Image from 'next/image';
+import React from 'react';
+import { HomeIcon } from '@heroicons/react/solid';
+import { PlusCircleIcon, SearchIcon } from '@heroicons/react/outline';
+import { useRouter } from 'next/router';
+import { signOut, useSession } from 'next-auth/react';
 
 export default function Header() {
-  const router = useRouter()
-  const { data: session } = useSession()
+  const router = useRouter();
+  const { data: session } = useSession();
 
   return (
     <div className='sticky top-0 border-b shadow-sm bg-white z-30'>
@@ -47,17 +47,17 @@ export default function Header() {
           />
 
           {session ? (
-            <div className=''>
-              <PlusCircleIcon className=' header-icon' />
+            <>
+              <PlusCircleIcon className='header-icon' />
               <Image
-                src='https://avatars.githubusercontent.com/u/6359476?v=4'
+                src={session.user.image}
                 height={64}
                 width={64}
                 alt='user-img'
                 className='h-10 w-10 cursor-pointer rounded-full'
                 onClick={() => signOut()}
               />
-            </div>
+            </>
           ) : (
             <button
               className='cursor-pointer'
@@ -69,5 +69,5 @@ export default function Header() {
         </div>
       </div>
     </div>
-  )
+  );
 }

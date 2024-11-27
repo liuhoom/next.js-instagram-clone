@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import minifaker from 'minifaker';
 import 'minifaker/locales/en';
 import Suggestions from './Suggestions';
+import { signOut, useSession } from 'next-auth/react';
 
 export default function Rightbar() {
+  const { data: session } = useSession();
   const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
     const suggestions = minifaker.array(5, (i) => ({
@@ -20,15 +22,18 @@ export default function Rightbar() {
       {/* Mini Profile */}
       <div className='flex items-center'>
         <img
-          src='https://avatars.githubusercontent.com/u/6359476?v=4'
+          src={session?.user.image}
           className='h-16 p-[1.5px] border rounded-full'
           alt='user-img'
         />
         <div className='flex flex-col ml-4 flex-1'>
-          <h3 className='font-bold'>liuhoom</h3>
+          <h3 className='font-bold'>{session?.user.name}</h3>
           <p className='text-gray-400'>Welcome to instagram</p>
         </div>
-        <button className='text-blue-400 font-semibold text-sm'>
+        <button
+          className='text-blue-400 font-semibold text-sm'
+          onClick={signOut}
+        >
           Sign out
         </button>
       </div>

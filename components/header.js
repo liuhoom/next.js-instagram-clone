@@ -3,9 +3,12 @@ import React from 'react'
 import { HomeIcon } from '@heroicons/react/solid'
 import { PlusCircleIcon, SearchIcon } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
+import { signOut, useSession } from 'next-auth/react'
 
 export default function Header() {
   const router = useRouter()
+  const { data: session } = useSession()
+
   return (
     <div className='sticky top-0 border-b shadow-sm bg-white z-30'>
       <div className='flex justify-between items-center max-w-6xl mx-4 xl:mx-auto'>
@@ -42,14 +45,27 @@ export default function Header() {
             className='hidden md:inline-flex header-icon'
             onClick={() => router.push('/')}
           />
-          <PlusCircleIcon className=' header-icon' />
-          <Image
-            src='https://avatars.githubusercontent.com/u/6359476?v=4'
-            height={64}
-            width={64}
-            alt='user-img'
-            className='h-10 w-10 cursor-pointer rounded-full'
-          />
+
+          {session ? (
+            <div className=''>
+              <PlusCircleIcon className=' header-icon' />
+              <Image
+                src='https://avatars.githubusercontent.com/u/6359476?v=4'
+                height={64}
+                width={64}
+                alt='user-img'
+                className='h-10 w-10 cursor-pointer rounded-full'
+                onClick={() => signOut()}
+              />
+            </div>
+          ) : (
+            <button
+              className='cursor-pointer'
+              onClick={() => router.push('/auth/signin')}
+            >
+              Sign In
+            </button>
+          )}
         </div>
       </div>
     </div>

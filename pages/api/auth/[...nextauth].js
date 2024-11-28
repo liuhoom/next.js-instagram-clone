@@ -1,7 +1,6 @@
 import NextAuth from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
-import { signIn } from 'next-auth/react'
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -16,11 +15,8 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      redirectUri:
-        process.env.GOOGLE_REDIRECT_URI ||
-        'http://localhost:3001/api/auth/callback/googleflowName=GeneralOAuthFlow',
       httpOptions: {
-        timeout: 100000,
+        timeout: 10000,
       },
     }),
   ],
@@ -28,6 +24,8 @@ export const authOptions = {
   pages: {
     signIn: '/auth/signin',
   },
+
+  secret: process.env.NEXTAUTH_SECRET,
 }
 
 export default NextAuth(authOptions)

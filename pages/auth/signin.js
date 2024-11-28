@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+'use client'
+
 import Header from '@/components/header'
 import { getProviders, signIn } from 'next-auth/react'
 

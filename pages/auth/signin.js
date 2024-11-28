@@ -6,10 +6,6 @@ import Header from '@/components/header'
 import { getProviders, signIn } from 'next-auth/react'
 
 export default function Signin({ providers }) {
-  if (!providers) {
-    return <div>Loading...</div>
-  }
-
   return (
     <>
       <Header />

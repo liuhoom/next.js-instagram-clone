@@ -13,13 +13,16 @@ export const authOptions = {
         timeout: 10000,
       },
     }),
-    // GoogleProvider({
-    //   clientId: process.env.GOOGLE_CLIENT_ID,
-    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    //   httpOptions: {
-    //     timeout: 10000000,
-    //   },
-    // }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      redirectUri:
+        process.env.GOOGLE_REDIRECT_URI ||
+        'http://localhost:3001/api/auth/callback/googleflowName=GeneralOAuthFlow',
+      httpOptions: {
+        timeout: 100000,
+      },
+    }),
   ],
 
   pages: {

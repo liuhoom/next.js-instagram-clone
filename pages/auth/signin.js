@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
-import Header from '@/components/header';
-import { getProviders, signIn } from 'next-auth/react';
+import Header from '@/components/header'
+import { getProviders, signIn } from 'next-auth/react'
 
 export default function Signin({ providers }) {
-  console.log(providers);
+  console.log(providers)
 
   return (
     <div>
@@ -39,15 +39,15 @@ export default function Signin({ providers }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export async function getServerSideProps(context) {
-  const providers = await getProviders();
+  const providers = await getProviders()
 
   return {
     props: {
       providers,
     },
-  };
+  }
 }

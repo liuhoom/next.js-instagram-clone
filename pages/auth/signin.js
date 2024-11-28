@@ -6,10 +6,12 @@ import Header from '@/components/header'
 import { getProviders, signIn } from 'next-auth/react'
 
 export default function Signin({ providers }) {
-  console.log(providers)
+  if (!data) {
+    return <div>Loading...</div>
+  }
 
   return (
-    <div>
+    <>
       <Header />
       <div className='flex items-center justify-center mt-32 md:space-x-14'>
         <div className='hidden md:inline-flex'>
@@ -40,7 +42,7 @@ export default function Signin({ providers }) {
           ))}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
